@@ -39,7 +39,7 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 50em;
 }
 
 
@@ -89,7 +89,7 @@ body {
 /*
  * Cover
  */
-@media (min-width: 35em) {
+@media (min-width: 40em) {
     .cover {
         margin-right: 10rem;
     }
