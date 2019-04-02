@@ -31,7 +31,7 @@
 
             <form class="form-signin">
                 <!--            <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
-                <h1 class="h3 mb-3 font-weight-normal">Register for an Account</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Register</h1>
                 <label for="inputEmail" class="sr-only">First Name</label>
                 <input type="firstname" id="inputFname" class="form-control" placeholder="First name" required autofocus>
                 <label for="inputEmail" class="sr-only">Last Name</label>
@@ -42,14 +42,10 @@
                 <input type="tel" id="inputPhoneNumber" class="form-control" placeholder="Phone number" required autofocus>
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <div class="checkbox mb-3">
+                <div class="radio mb-3">
                     <label>
-                        <input type="checkbox" value="patient"> I am a Doctor
-                    </label>
-                </div>
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="doctor"> I am a Patient
+                        <input type="radio" name="accountType" value="patient"> I am a Doctor<br>
+                        <input type="radio" name="accountType" value="doctor"> I am a Patient
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Create account</button>
