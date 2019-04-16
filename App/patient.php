@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +29,6 @@
                         <a class="nav-link active" href="#">Prescriptions</a>
                         <a class="nav-link" href="#">Appointments</a>
                         <?php
-                            session_start();
-                            
                             if(!isset($_SESSION['email'])) {
                               echo "<a class='nav-link' href='login.html'>Login</a>
                               <a class='nav-link' href='register.html'>Register</a>";
