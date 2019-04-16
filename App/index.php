@@ -28,6 +28,12 @@
                           echo "<a class='nav-link' href='login.html'>Login</a>
                           <a class='nav-link' href='register.html'>Register</a>";
                         } else {
+                            // If a doctor
+                            if($_SESSION['isDoc']) {
+                                echo "<a class='nav-link' href='doctor.php'>Profile</a>";
+                            } else {
+                                echo "<a class='nav-link' href='patient.php'>Profile</a>";
+                            }
                             echo "<a id='logout' class='nav-link' href='#'>Logout</a>";
                         }
                     ?>
