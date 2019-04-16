@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -10,9 +10,9 @@
     <link href="css/profile.css" rel="stylesheet">
 </head>
 
-<body class="text-center" >
+<body class="text-center">
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
         <div class="cover-container masthead">
             <header class="masthead mb-auto">
                 <div class="inner">
@@ -23,13 +23,27 @@
                         <a class="nav-link" href="calendar.php">Calendar</a>
                         <a class="nav-link active" href="#">Prescriptions</a>
                         <a class="nav-link" href="#">Appointments</a>
-                        <a class="nav-link" href="login.html">Login</a>
-                        <a class="nav-link" href="register.html">Register</a>
+                        <?php
+                            session_start();
+                            
+                            if(!isset($email)) {
+                              echo "<a class='nav-link' href='login.html'>Login</a>
+                              <a class='nav-link' href='register.html'>Register</a>";
+                            } else {
+                                // If a doctor
+                                if($_SESSION['isDoc']) {
+                                    echo "<a class='nav-link' href='doctor.php'>Profile</a>";
+                                } else {
+                                    echo "<a class='nav-link' href='patient.php'>Profile</a>";
+                                }
+                                echo "<a id='logout' class='nav-link' href='#'>Logout</a>";
+                            }
+                        ?>
                     </nav>
                 </div>
             </header> <!-- end header -->
         </div>
-        
+ 
         <div class="cover-container-profile d-flex">
             <div class="row ">
                 <div class="col-md-4 order-md-1 mb-4">
@@ -38,35 +52,37 @@
                                 <img class="card-img-top" src="images/person.png" alt="Patient User Image">
                             <div class="card-body  text-left">
                                 <h6 class="card-text">
-                                    Doctor: <a href="#">Dr. Name Here</a>
+                                    Quick Menu
                                 </h6>
                             </div>
                             <ul class="list-group list-group-flush text-left">
-                                <li class="list-group-item">medication 1</li>
-                                <li class="list-group-item">medication 2</li>
-                                <li class="list-group-item">medication 3</li>
+                                <li class="list-group-item">
+                                    <a href="appointments.php" class="card-link">View or edit appointments</a>
+                                </li>
+<!--
+                                <li class="list-group-item">
+                                    <a href="appointments.php" class="card-link">View Medications</a>
+                                </li>
+-->
+                                <li class="list-group-item">
+                                    <a href="appointments.php" class="card-link">View or edit Doctor</a>
+                                </li>
                             </ul>
-                            <div class="card-body">
-                                <p class="text-muted text-left">
-                                    Add or edit your medications:
-                                </p>
-                                <p>
-                                    <a role="button" class="btn btn-info" href="calendar.php">Your Medications</a>
-                                </p>
-                            </div>
                         </div>
+                        <!-- end Left Menu -->
                     </div>
                 </div> <!-- end column 1 -->
                 <div class="col-md-8 order-md-2">
                     <div class="container-flex m-3">
+<!--                        <h4 class="d-flex"> <?php echo $fullname; ?> </h4>-->
                         <h4 class="d-flex"> Patient Name </h4>
                         <p class="text-muted text-left"> Brief description of the patient if you want. Hi there i am John Doe and this is what i like to talk about blah blah blah</p>
-<!--                        <h4 class="d-flex text-center mb-3"> Your Appointments</h4>-->
+                        
                         <div class="card d-flex mt-5">
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-10">
-                                        <h4 class="d-flex ">Your Appointments</h4>
+                                        <h4 class="d-flex ">Your Medications</h4>
                                     </div>
                                     <div class="col-md-2">
                                         <a role="button" class="btn btn-info align-self-end" href="calendar.php">edit</a>
@@ -76,29 +92,48 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div>
-                                        <h5 class="d-flex my-1 mb-2">Appointment Name</h5>
-                                        <p class="text-muted text-left">Date and duration</p>
-                                        <p class="text-muted text-left">Brief Description</p>
+                                        <h5 class="d-flex my-1 mb-2">Medication 1</h5>
+                                        <p class="text-muted text-left">Date Issued</p>
+                                        <p class="text-muted text-left">Prescribed by doctor</p>
+                                        <p class="text-muted text-left">Brief Description/Directions</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div>
-                                        <h5 class="d-flex my-1 mb-2">Appointment Name</h5>
-                                        <p class="text-muted text-left">Date and duration</p>
-                                        <p class="text-muted text-left">Brief Description</p>
+                                        <h5 class="d-flex my-1 mb-2">Medication 2</h5>
+                                        <p class="text-muted text-left">Date Issued</p>
+                                        <p class="text-muted text-left">Prescribed by doctor</p>
+                                        <p class="text-muted text-left">Brief Description/Directions</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div>
-                                        <h5 class="d-flex my-1 mb-2">Appointment Name</h5>
-                                        <p class="text-muted text-left">Date and duration</p>
-                                        <p class="text-muted text-left">Brief Description</p>
+                                        <h5 class="d-flex my-1 mb-2">Medication 2</h5>
+                                        <p class="text-muted text-left">Date Issued</p>
+                                        <p class="text-muted text-left">Prescribed by doctor</p>
+                                        <p class="text-muted text-left">Brief Description/Directions</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
-                                    <p class="text-muted text-left">Need to schedule another appointment? Don't worry!</p>
+                                    <div>
+                                        <h5 class="d-flex my-1 mb-2">Medication 2</h5>
+                                        <p class="text-muted text-left">Date Issued</p>
+                                        <p class="text-muted text-left">Prescribed by doctor</p>
+                                        <p class="text-muted text-left">Brief Description/Directions</p>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div>
+                                        <h5 class="d-flex my-1 mb-2">Medication 2</h5>
+                                        <p class="text-muted text-left">Date Issued</p>
+                                        <p class="text-muted text-left">Prescribed by doctor</p>
+                                        <p class="text-muted text-left">Brief Description/Directions</p>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <p class="text-muted text-left">Need to update your prescriptions? Don't worry!</p>
                                     <p class="text-muted text-left">
-                                        <a role="button" class="btn btn-info" href="calendar.php">Schedule or edit an appointment here!</a>
+                                        <a role="button" class="btn btn-info" href="#">Add or edit your medications here!</a>
                                     </p>
                                 </li>
                             </ul>

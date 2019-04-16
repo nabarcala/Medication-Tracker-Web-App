@@ -35,8 +35,6 @@ body {
   display: -ms-flexbox;
   display: flex;
   color: black;
-  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 }
 
 .cover-container {
@@ -115,4 +113,5 @@ body {
  */
 .mastfoot {
   color: rgba(96, 101, 109);
+  padding-bottom: 5rem;
 }
