@@ -34,7 +34,7 @@
                             } else {
                                 // If a doctor
                                 if($_SESSION['isDoc']) {
-                                    echo "<a class='nav-link' href='doctor.php'>Profile</a>";
+                                    echo "<a class='nav-link active' href='doctor.php'>Profile</a>";
                                 } else {
                                     echo "<a class='nav-link active' href='patient.php'>Profile</a>";
                                 }
