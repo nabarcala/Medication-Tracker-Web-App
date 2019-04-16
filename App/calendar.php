@@ -47,6 +47,14 @@
           <li><a class="nav-link" href="appointments.php">
               <h4>Appointments</h4>
             </a></li>
+            <?php
+                // If a doctor
+                if($_SESSION['isDoc']) {
+                    echo "<li><a class='nav-link' href='doctor.php'><h4>Profile</h4></a></li>";
+                } else {
+                    echo "<li><a class='nav-link' href='patient.php'><h4>Profile</h4></a></li>";
+                }
+            ?>
           <li><a id="logout" class="nav-link" href="login.html">
               <h4>Logout</h4>
             </a></li>

@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +16,7 @@
 </head>
 
 <body class="text-center">
-
-    <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+    <div class="cover-container d-flex w-100 h-100 pt-3 mx-auto flex-column">
         <div class="cover-container masthead">
             <header class="masthead mb-auto">
                 <div class="inner">
@@ -21,20 +25,18 @@
                     <nav class="nav nav-masthead justify-content-center">
                         <a class="nav-link" href="index.php">Home</a>
                         <a class="nav-link" href="calendar.php">Calendar</a>
-                        <a class="nav-link active" href="#">Prescriptions</a>
-                        <a class="nav-link" href="#">Appointments</a>
+                        <a class="nav-link" href="#">Prescriptions</a>
+                        <a class="nav-link" href="appointments.php">Appointments</a>
                         <?php
-                            session_start();
-                            
                             if(!isset($_SESSION['email'])) {
                               echo "<a class='nav-link' href='login.html'>Login</a>
                               <a class='nav-link' href='register.html'>Register</a>";
                             } else {
                                 // If a doctor
                                 if($_SESSION['isDoc']) {
-                                    echo "<a class='nav-link' href='doctor.php'>Profile</a>";
+                                    echo "<a class='nav-link active' href='doctor.php'>Profile</a>";
                                 } else {
-                                    echo "<a class='nav-link' href='patient.php'>Profile</a>";
+                                    echo "<a class='nav-link active' href='patient.php'>Profile</a>";
                                 }
                                 echo "<a id='logout' class='nav-link' href='#'>Logout</a>";
                             }
@@ -59,11 +61,6 @@
                                 <li class="list-group-item">
                                     <a href="appointments.php" class="card-link">View or edit appointments</a>
                                 </li>
-<!--
-                                <li class="list-group-item">
-                                    <a href="appointments.php" class="card-link">View Medications</a>
-                                </li>
--->
                                 <li class="list-group-item">
                                     <a href="appointments.php" class="card-link">View or edit Doctor</a>
                                 </li>
@@ -74,18 +71,25 @@
                 </div> <!-- end column 1 -->
                 <div class="col-md-8 order-md-2">
                     <div class="container-flex m-3">
-<!--                        <h4 class="d-flex"> <?php echo $fullname; ?> </h4>-->
-                        <h4 class="d-flex"> Patient Name </h4>
+                        <?php
+                            if(!isset($_SESSION['email'])) {
+                                echo "<h4 class='d-flex'> Patient Name </h4>";
+                            } else {
+                                echo "<h4 class='d-flex'>";
+                                echo $_SESSION['fullName']; 
+                                echo "</h4>";
+                            }
+                        ?>
                         <p class="text-muted text-left"> Brief description of the patient if you want. Hi there i am John Doe and this is what i like to talk about blah blah blah</p>
                         
                         <div class="card d-flex mt-5">
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-10">
-                                        <h4 class="d-flex ">Your Medications</h4>
+                                        <h4 class="d-flex">Your Medications</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <a role="button" class="btn btn-info align-self-end" href="calendar.php">edit</a>
+                                        <a role="button" class="btn btn-info align-self-end" href="#">edit</a>
                                     </div>
                                 </div>
                             </div>
