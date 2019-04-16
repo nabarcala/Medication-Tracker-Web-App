@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -77,8 +77,15 @@
                 </div> <!-- end column 1 -->
                 <div class="col-md-8 order-md-2">
                     <div class="container-flex m-3">
-<!--                        <h4 class="d-flex"> <?php echo $fullname; ?> </h4>-->
-                        <h4 class="d-flex"> Patient Name </h4>
+                        <?php
+                            if(!isset($_SESSION['email'])) {
+                                echo "<h4 class='d-flex'> Patient Name </h4>";
+                            } else {
+                                echo "<h4 class='d-flex'>";
+                                echo $_SESSION['fullName']; 
+                                echo "</h4>";
+                            }
+                        ?>
                         <p class="text-muted text-left"> Brief description of the patient if you want. Hi there i am John Doe and this is what i like to talk about blah blah blah</p>
                         
                         <div class="card d-flex mt-5">
