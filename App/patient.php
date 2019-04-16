@@ -26,7 +26,7 @@
                     <nav class="nav nav-masthead justify-content-center">
                         <a class="nav-link" href="index.php">Home</a>
                         <a class="nav-link" href="calendar.php">Calendar</a>
-                        <a class="nav-link active" href="#">Prescriptions</a>
+                        <a class="nav-link" href="#">Prescriptions</a>
                         <a class="nav-link" href="#">Appointments</a>
                         <?php
                             if(!isset($_SESSION['email'])) {
@@ -37,7 +37,7 @@
                                 if($_SESSION['isDoc']) {
                                     echo "<a class='nav-link' href='doctor.php'>Profile</a>";
                                 } else {
-                                    echo "<a class='nav-link' href='patient.php'>Profile</a>";
+                                    echo "<a class='nav-link active' href='patient.php'>Profile</a>";
                                 }
                                 echo "<a id='logout' class='nav-link' href='#'>Logout</a>";
                             }
