@@ -16,8 +16,7 @@
 </head>
 
 <body class="text-center">
-
-    <div class="cover-container d-flex w-100 h-100 mx-auto flex-column">
+    <div class="cover-container d-flex w-100 h-100 pt-3 mx-auto flex-column">
         <div class="cover-container masthead">
             <header class="masthead mb-auto">
                 <div class="inner">
@@ -92,10 +91,10 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-10">
-                                        <h4 class="d-flex ">Your Medications</h4>
+                                        <h4 class="d-flex">Your Medications</h4>
                                     </div>
                                     <div class="col-md-2">
-                                        <a role="button" class="btn btn-info align-self-end" href="calendar.php">edit</a>
+                                        <a role="button" class="btn btn-info align-self-end" href="#">edit</a>
                                     </div>
                                 </div>
                             </div>
