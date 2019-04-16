@@ -26,7 +26,7 @@
                         <a class="nav-link" href="index.php">Home</a>
                         <a class="nav-link" href="calendar.php">Calendar</a>
                         <a class="nav-link" href="#">Prescriptions</a>
-                        <a class="nav-link" href="#">Appointments</a>
+                        <a class="nav-link" href="appointments.php">Appointments</a>
                         <?php
                             if(!isset($_SESSION['email'])) {
                               echo "<a class='nav-link' href='login.html'>Login</a>
@@ -61,11 +61,6 @@
                                 <li class="list-group-item">
                                     <a href="appointments.php" class="card-link">View or edit appointments</a>
                                 </li>
-<!--
-                                <li class="list-group-item">
-                                    <a href="appointments.php" class="card-link">View Medications</a>
-                                </li>
--->
                                 <li class="list-group-item">
                                     <a href="appointments.php" class="card-link">View or edit Doctor</a>
                                 </li>
