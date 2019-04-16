@@ -26,7 +26,7 @@
                         <?php
                             session_start();
                             
-                            if(!isset($email)) {
+                            if(!isset($_SESSION['email'])) {
                               echo "<a class='nav-link' href='login.html'>Login</a>
                               <a class='nav-link' href='register.html'>Register</a>";
                             } else {
