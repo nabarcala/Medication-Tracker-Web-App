@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include("php/config.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,12 +29,13 @@
                             <a class="nav-link" href="#">Prescriptions</a>
                             <a class="nav-link" href="appointments.php">Appointments</a>
                             <?php
-                            session_start();
-                            
                             if(!isset($_SESSION['email'])) {
                                 echo "<a class='nav-link' href='login.html'>Login</a>
                               <a class='nav-link' href='register.html'>Register</a>";
                             } else {
+                                
+                                $email = $_SESSION['email'];
+                                
                                 // If a doctor
                                 if($_SESSION['isDoc']) {
                                     echo "<a class='nav-link active' href='doctor.php'>Profile</a>";
@@ -69,15 +75,35 @@
                             <p>Total medications:</p>
                             <p><!-- Total number of medications should be accessed from medication database --></p>
                         </li>
-                        <li class="list-group-item text-muted">
-                            <p>Total appointments:</p>
-                            <p>
-                            <!-- Total number of appointments should be accessed from calendar/appointments database -->
-                            </p>
-                            <p>
-                                <a role="button" class="btn btn-info" href="appointments.php">View</a>
-                            </p>
-                        </li>
+                        
+                        <?php
+                            if(isset($_SESSION['email'])) {
+                                
+                                $sql = "SELECT title FROM Calendar WHERE email = '$email'";
+                                $result = mysqli_query($db, $sql);
+                                
+                                $counter = 0;
+                                while($results = mysqli_fetch_object($result)) {
+                                    $counter = $counter + 1;
+                                }
+                                
+                                echo "
+                                    <li class='list-group-item text-muted'>
+                                        <p>Appointments: 
+                                            <span class='badge badge-light'>
+                                ";
+                                echo $counter;
+                                echo "
+                                        </span>
+                                        </p>
+                                        <p>
+                                            <a role='button' class='btn btn-info pt-1' href='appointments.php'>View</a>
+                                        </p>
+                                    </li>
+                                ";
+                            }
+                        ?>
+                        
                     </ul>
                 </div> <!-- end column 1 -->
                 <div class="col-sm-9">
@@ -105,6 +131,10 @@
                     </div> <!-- end medication list -->
                 </div> <!-- end column 2 -->
             </div>
+            
+            <?php
+                $db->close();
+            ?>
 
             <footer class="mastfoot mt-auto">
                 <!--
