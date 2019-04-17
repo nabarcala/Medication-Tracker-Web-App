@@ -72,7 +72,10 @@
                         <li class="list-group-item text-muted">
                             <p>Total appointments:</p>
                             <p>
-                            
+                            <!-- Total number of appointments should be accessed from calendar/appointments database -->
+                            </p>
+                            <p>
+                                <a role="button" class="btn btn-info" href="appointments.php">View</a>
                             </p>
                         </li>
                     </ul>
