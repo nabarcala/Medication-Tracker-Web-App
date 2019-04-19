@@ -79,7 +79,7 @@
                         <?php
                             if(isset($_SESSION['email'])) {
                                 
-                                $sql = "SELECT title FROM Calendar WHERE email = '$email'";
+                                $sql = "SELECT title FROM Calendar WHERE email = '$email' AND category LIKE 'Appointment%' ORDER BY start DESC"; 
                                 $result = mysqli_query($db, $sql);
                                 
                                 $counter = 0;
